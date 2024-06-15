@@ -7,8 +7,8 @@
 
   <op:ETS OpenKnxId="0xAF"
     ApplicationNumber="0x02"
-    ApplicationVersion="0.1"
-    ReplacesVersions="0.0"
+    ApplicationVersion="0.5"
+    ReplacesVersions="0.4 0.3 0.2 0.1 0.0"
     ApplicationRevision="0"
     ProductName="Schaltaktor"
     ApplicationName="AB-SwitchActuator-Logic"
@@ -32,6 +32,7 @@
     share="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.share.xml"
     template="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.templ.xml"
     NumChannels="8"
+    KoSingleOffset="20"
     KoOffset="50"
     ModuleType="20">
     <op:verify File="../lib/OFM-SwitchActuator/library.json" ModuleVersion="0.0" />
