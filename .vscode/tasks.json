@@ -1,0 +1,99 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Pre-Build-Step",
+            "type": "shell",
+            "command": "lib/OGM-Common/scripts/Build/OpenKNX-Pre-Build.ps1",
+            "args": [],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Develop RP2040",
+            "type": "shell",
+            "command": "scripts/OpenKNX-Build.ps1",
+            "args": [
+                "develop_RP2040"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Upload JLINK RP2040",
+            "type": "shell",
+            "command": "scripts/OpenKNX-Build.ps1",
+            "args": [
+                "upload_JLINK_RP2040",
+                "upload"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Upload USB RP2040",
+            "type": "shell",
+            "command": "scripts/OpenKNX-Build.ps1",
+            "args": [
+                "upload_USB_RP2040",
+                "upload"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Create Dependencies",
+            "type": "shell",
+            "command": "lib/OGM-Common/scripts/setup/reusable/Build-Dependencies.ps1",
+            "args": [],
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "OpenKNXproducer",
+            "type": "shell",
+            "command": "~/bin/OpenKNXproducer.exe",
+            "args": [
+                "create",
+                "--Debug",
+                "--HeaderFileName",
+                "include/knxprod.h",
+                "src/SwitchActuator.xml"
+            ],
+            "problemMatcher": [],
+            "group": "test"
+        },
+        {
+            "label": "Build-Release",
+            "type": "shell",
+            "command": "scripts/Build-Release.ps1",
+            "args": [
+                "Release"
+            ],
+            "problemMatcher": [],
+            "group": "test"
+        },
+        {
+            "label": "Build-Release-Package",
+            "type": "shell",
+            "command": "scripts/Build-Release-Package.ps1",
+            "args": [],
+            "problemMatcher": [],
+            "group": "test"
+        },
+        {
+            "label": "Resolve platformio.ini",
+            "type": "shell",
+            "command": "~/.platformio/penv/Scripts/pio",
+            "args": [
+                "project",
+                "config",
+                ">platformio.ini.full.txt"
+            ],
+            "problemMatcher": [],
+            "group": "test"
+        }
+    ]
+}

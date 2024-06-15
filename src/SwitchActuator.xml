@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="../../Organization/knxprod-support/knx_project_20/knx-editor.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<KNX xmlns="http://knx.org/xml/project/20" xmlns:op="http://github.com/OpenKNX/OpenKNXproducer">
+
+  <op:config name="%SWA_NumChannelsDefault%" value="8" />
+  <op:config name="%LOG_NumChannelsDefault%" value="1" />
+
+  <op:ETS OpenKnxId="0xAF"
+    ApplicationNumber="0x02"
+    ApplicationVersion="0.1"
+    ReplacesVersions="0.0"
+    ApplicationRevision="0"
+    ProductName="Schaltaktor"
+    ApplicationName="AB-SwitchActuator-Logic"
+    BuildSuffix="-dev"
+    BuildSuffixText=" (dev)"
+    OrderNumber="OpenKnxSwitchActuator"
+    BaggagesRootDir="A6/02"
+  />
+  <op:define prefix="BASE" ModuleType="10"
+             share="../lib/OGM-Common/src/Common.share.xml"
+  />
+
+  <!-- <op:define prefix="UCT"
+    share="../../OFM-ConfigTransfer/src/ConfigTransfer.share.xml"
+    noConfigTransfer="true"
+    ModuleType="99">
+    <op:verify File="../../OFM-ConfigTransfer/library.json" ModuleVersion="0.1" />
+  </op:define> -->
+
+  <op:define prefix="SWA"
+    share="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.share.xml"
+    template="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.templ.xml"
+    NumChannels="8"
+    KoOffset="50"
+    ModuleType="20">
+    <op:verify File="../lib/OFM-SwitchActuator/library.json" ModuleVersion="0.0" />
+  </op:define>
+
+  <op:define prefix="LOG"
+    share="../lib/OFM-LogicModule/src/Logikmodul.share.xml"
+    template="../lib/OFM-LogicModule/src/Logikmodul.templ.xml"
+    NumChannels="1"
+    KoOffset="450"
+    ModuleType="10">
+    <op:verify File="../lib/OFM-LogicModule/library.json" ModuleVersion="3.2" />
+  </op:define>
+  <generate />
+</KNX>
