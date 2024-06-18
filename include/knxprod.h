@@ -10,8 +10,8 @@
                                              
 #define MAIN_OpenKnxId 0xAF
 #define MAIN_ApplicationNumber 2
-#define MAIN_ApplicationVersion 5
-#define MAIN_ParameterSize 312
+#define MAIN_ApplicationVersion 8
+#define MAIN_ParameterSize 736
 #define MAIN_MaxKoNumber 452
 #define MAIN_OrderNumber "OpenKnxSwitchActuator"
 #define SWA_ModuleVersion 0
@@ -156,12 +156,15 @@
 
 // Parameter per channel
 #define SWA_ParamBlockOffset 47
-#define SWA_ParamBlockSize 21
+#define SWA_ParamBlockSize 74
 #define SWA_ParamCalcIndex(index) (index + SWA_ParamBlockOffset + _channelIndex * SWA_ParamBlockSize)
 
-#define SWA_Channel%Z%Inactive                   0      // 1 Bit, Bit 7
-#define     SWA_Channel%Z%InactiveMask 0x80
-#define     SWA_Channel%Z%InactiveShift 7
+#define SWA_Channel%Z%Active                     0      // 2 Bits, Bit 7-6
+#define     SWA_Channel%Z%ActiveMask 0xC0
+#define     SWA_Channel%Z%ActiveShift 6
+#define SWA_Channel%Z%SyncSwitch                 0      // 1 Bit, Bit 7
+#define     SWA_Channel%Z%SyncSwitchMask 0x80
+#define     SWA_Channel%Z%SyncSwitchShift 7
 #define SWA_Channel%Z%OperationMode              0      // 1 Bit, Bit 7
 #define     SWA_Channel%Z%OperationModeMask 0x80
 #define     SWA_Channel%Z%OperationModeShift 7
@@ -231,16 +234,67 @@
 #define SWA_Channel%Z%SceneLearn                 0      // 1 Bit, Bit 7
 #define     SWA_Channel%Z%SceneLearnMask 0x80
 #define     SWA_Channel%Z%SceneLearnShift 7
-#define SWA_Channel%Z%SceneAActive               0      // 1 Bit, Bit 7
+#define SWA_Channel%Z%SceneAActive              58      // 1 Bit, Bit 7
 #define     SWA_Channel%Z%SceneAActiveMask 0x80
 #define     SWA_Channel%Z%SceneAActiveShift 7
-#define SWA_Channel%Z%SceneANumber               0      // 8 Bits, Bit 7-0
-#define SWA_Channel%Z%SceneABehavior             0      // 1 Bit, Bit 7
-#define     SWA_Channel%Z%SceneABehaviorMask 0x80
-#define     SWA_Channel%Z%SceneABehaviorShift 7
+#define SWA_Channel%Z%SceneABehavior            58      // 2 Bits, Bit 6-5
+#define     SWA_Channel%Z%SceneABehaviorMask 0x60
+#define     SWA_Channel%Z%SceneABehaviorShift 5
+#define SWA_Channel%Z%SceneANumber              59      // 8 Bits, Bit 7-0
+#define SWA_Channel%Z%SceneBActive              60      // 1 Bit, Bit 7
+#define     SWA_Channel%Z%SceneBActiveMask 0x80
+#define     SWA_Channel%Z%SceneBActiveShift 7
+#define SWA_Channel%Z%SceneBBehavior            60      // 2 Bits, Bit 6-5
+#define     SWA_Channel%Z%SceneBBehaviorMask 0x60
+#define     SWA_Channel%Z%SceneBBehaviorShift 5
+#define SWA_Channel%Z%SceneBNumber              61      // 8 Bits, Bit 7-0
+#define SWA_Channel%Z%SceneCActive              62      // 1 Bit, Bit 7
+#define     SWA_Channel%Z%SceneCActiveMask 0x80
+#define     SWA_Channel%Z%SceneCActiveShift 7
+#define SWA_Channel%Z%SceneCBehavior            62      // 2 Bits, Bit 6-5
+#define     SWA_Channel%Z%SceneCBehaviorMask 0x60
+#define     SWA_Channel%Z%SceneCBehaviorShift 5
+#define SWA_Channel%Z%SceneCNumber              63      // 8 Bits, Bit 7-0
+#define SWA_Channel%Z%SceneDActive              64      // 1 Bit, Bit 7
+#define     SWA_Channel%Z%SceneDActiveMask 0x80
+#define     SWA_Channel%Z%SceneDActiveShift 7
+#define SWA_Channel%Z%SceneDBehavior            64      // 2 Bits, Bit 6-5
+#define     SWA_Channel%Z%SceneDBehaviorMask 0x60
+#define     SWA_Channel%Z%SceneDBehaviorShift 5
+#define SWA_Channel%Z%SceneDNumber              65      // 8 Bits, Bit 7-0
+#define SWA_Channel%Z%SceneEActive              66      // 1 Bit, Bit 7
+#define     SWA_Channel%Z%SceneEActiveMask 0x80
+#define     SWA_Channel%Z%SceneEActiveShift 7
+#define SWA_Channel%Z%SceneEBehavior            66      // 2 Bits, Bit 6-5
+#define     SWA_Channel%Z%SceneEBehaviorMask 0x60
+#define     SWA_Channel%Z%SceneEBehaviorShift 5
+#define SWA_Channel%Z%SceneENumber              67      // 8 Bits, Bit 7-0
+#define SWA_Channel%Z%SceneFActive              68      // 1 Bit, Bit 7
+#define     SWA_Channel%Z%SceneFActiveMask 0x80
+#define     SWA_Channel%Z%SceneFActiveShift 7
+#define SWA_Channel%Z%SceneFBehavior            68      // 2 Bits, Bit 6-5
+#define     SWA_Channel%Z%SceneFBehaviorMask 0x60
+#define     SWA_Channel%Z%SceneFBehaviorShift 5
+#define SWA_Channel%Z%SceneFNumber              69      // 8 Bits, Bit 7-0
+#define SWA_Channel%Z%SceneGActive              70      // 1 Bit, Bit 7
+#define     SWA_Channel%Z%SceneGActiveMask 0x80
+#define     SWA_Channel%Z%SceneGActiveShift 7
+#define SWA_Channel%Z%SceneGBehavior            70      // 2 Bits, Bit 6-5
+#define     SWA_Channel%Z%SceneGBehaviorMask 0x60
+#define     SWA_Channel%Z%SceneGBehaviorShift 5
+#define SWA_Channel%Z%SceneGNumber              71      // 8 Bits, Bit 7-0
+#define SWA_Channel%Z%SceneHActive              72      // 1 Bit, Bit 7
+#define     SWA_Channel%Z%SceneHActiveMask 0x80
+#define     SWA_Channel%Z%SceneHActiveShift 7
+#define SWA_Channel%Z%SceneHBehavior            72      // 2 Bits, Bit 6-5
+#define     SWA_Channel%Z%SceneHBehaviorMask 0x60
+#define     SWA_Channel%Z%SceneHBehaviorShift 5
+#define SWA_Channel%Z%SceneHNumber              73      // 8 Bits, Bit 7-0
 
-// Kanal deaktivieren
-#define ParamSWA_Channel%Z%Inactive                  ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%Inactive)) & SWA_Channel%Z%InactiveMask))
+// Kanalaktivität
+#define ParamSWA_Channel%Z%Active                    ((knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%Active)) & SWA_Channel%Z%ActiveMask) >> SWA_Channel%Z%ActiveShift)
+// 
+#define ParamSWA_Channel%Z%SyncSwitch                ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SyncSwitch)) & SWA_Channel%Z%SyncSwitchMask))
 // Betriebsmodus
 #define ParamSWA_Channel%Z%OperationMode             ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%OperationMode)) & SWA_Channel%Z%OperationModeMask))
 // Zeitbasis
@@ -299,32 +353,77 @@
 #define ParamSWA_Channel%Z%SceneLearn                ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneLearn)) & SWA_Channel%Z%SceneLearnMask))
 // Szene aktiv
 #define ParamSWA_Channel%Z%SceneAActive              ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneAActive)) & SWA_Channel%Z%SceneAActiveMask))
+// Szene Verhalten
+#define ParamSWA_Channel%Z%SceneABehavior            ((knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneABehavior)) & SWA_Channel%Z%SceneABehaviorMask) >> SWA_Channel%Z%SceneABehaviorShift)
 // Szene Nummer
 #define ParamSWA_Channel%Z%SceneANumber              (knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneANumber)))
+// Szene aktiv
+#define ParamSWA_Channel%Z%SceneBActive              ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneBActive)) & SWA_Channel%Z%SceneBActiveMask))
 // Szene Verhalten
-#define ParamSWA_Channel%Z%SceneABehavior            ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneABehavior)) & SWA_Channel%Z%SceneABehaviorMask))
+#define ParamSWA_Channel%Z%SceneBBehavior            ((knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneBBehavior)) & SWA_Channel%Z%SceneBBehaviorMask) >> SWA_Channel%Z%SceneBBehaviorShift)
+// Szene Nummer
+#define ParamSWA_Channel%Z%SceneBNumber              (knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneBNumber)))
+// Szene aktiv
+#define ParamSWA_Channel%Z%SceneCActive              ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneCActive)) & SWA_Channel%Z%SceneCActiveMask))
+// Szene Verhalten
+#define ParamSWA_Channel%Z%SceneCBehavior            ((knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneCBehavior)) & SWA_Channel%Z%SceneCBehaviorMask) >> SWA_Channel%Z%SceneCBehaviorShift)
+// Szene Nummer
+#define ParamSWA_Channel%Z%SceneCNumber              (knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneCNumber)))
+// Szene aktiv
+#define ParamSWA_Channel%Z%SceneDActive              ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneDActive)) & SWA_Channel%Z%SceneDActiveMask))
+// Szene Verhalten
+#define ParamSWA_Channel%Z%SceneDBehavior            ((knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneDBehavior)) & SWA_Channel%Z%SceneDBehaviorMask) >> SWA_Channel%Z%SceneDBehaviorShift)
+// Szene Nummer
+#define ParamSWA_Channel%Z%SceneDNumber              (knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneDNumber)))
+// Szene aktiv
+#define ParamSWA_Channel%Z%SceneEActive              ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneEActive)) & SWA_Channel%Z%SceneEActiveMask))
+// Szene Verhalten
+#define ParamSWA_Channel%Z%SceneEBehavior            ((knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneEBehavior)) & SWA_Channel%Z%SceneEBehaviorMask) >> SWA_Channel%Z%SceneEBehaviorShift)
+// Szene Nummer
+#define ParamSWA_Channel%Z%SceneENumber              (knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneENumber)))
+// Szene aktiv
+#define ParamSWA_Channel%Z%SceneFActive              ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneFActive)) & SWA_Channel%Z%SceneFActiveMask))
+// Szene Verhalten
+#define ParamSWA_Channel%Z%SceneFBehavior            ((knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneFBehavior)) & SWA_Channel%Z%SceneFBehaviorMask) >> SWA_Channel%Z%SceneFBehaviorShift)
+// Szene Nummer
+#define ParamSWA_Channel%Z%SceneFNumber              (knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneFNumber)))
+// Szene aktiv
+#define ParamSWA_Channel%Z%SceneGActive              ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneGActive)) & SWA_Channel%Z%SceneGActiveMask))
+// Szene Verhalten
+#define ParamSWA_Channel%Z%SceneGBehavior            ((knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneGBehavior)) & SWA_Channel%Z%SceneGBehaviorMask) >> SWA_Channel%Z%SceneGBehaviorShift)
+// Szene Nummer
+#define ParamSWA_Channel%Z%SceneGNumber              (knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneGNumber)))
+// Szene aktiv
+#define ParamSWA_Channel%Z%SceneHActive              ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneHActive)) & SWA_Channel%Z%SceneHActiveMask))
+// Szene Verhalten
+#define ParamSWA_Channel%Z%SceneHBehavior            ((knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneHBehavior)) & SWA_Channel%Z%SceneHBehaviorMask) >> SWA_Channel%Z%SceneHBehaviorShift)
+// Szene Nummer
+#define ParamSWA_Channel%Z%SceneHNumber              (knx.paramByte(SWA_ParamCalcIndex(SWA_Channel%Z%SceneHNumber)))
 
 // deprecated
 #define SWA_KoOffset 50
 
 // Communication objects per channel (multiple occurrence)
 #define SWA_KoBlockOffset 50
-#define SWA_KoBlockSize 5
+#define SWA_KoBlockSize 6
 
 #define SWA_KoCalcNumber(index) (index + SWA_KoBlockOffset + _channelIndex * SWA_KoBlockSize)
 #define SWA_KoCalcIndex(number) ((number >= SWA_KoCalcNumber(0) && number < SWA_KoCalcNumber(SWA_KoBlockSize)) ? (number - SWA_KoBlockOffset) % SWA_KoBlockSize : -1)
 #define SWA_KoCalcChannel(number) ((number >= SWA_KoBlockOffset && number < SWA_KoBlockOffset + SWA_ChannelCount * SWA_KoBlockSize) ? (number - SWA_KoBlockOffset) / SWA_KoBlockSize : -1)
 
-#define SWA_KoChannel%Z%Switch 0
-#define SWA_KoChannel%Z%Status 1
-#define SWA_KoChannel%Z%Lock 2
-#define SWA_KoChannel%Z%LockStatus 3
-#define SWA_KoChannel%Z%Scene 4
+#define SWA_KoChannel%Z%Switch 1
+#define SWA_KoChannel%Z%Status 2
+#define SWA_KoChannel%Z%StatusInverted 3
+#define SWA_KoChannel%Z%Lock 4
+#define SWA_KoChannel%Z%LockStatus 5
+#define SWA_KoChannel%Z%Scene 6
 
 // 
 #define KoSWA_Channel%Z%Switch                    (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChannel%Z%Switch)))
 // 
 #define KoSWA_Channel%Z%Status                    (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChannel%Z%Status)))
+// 
+#define KoSWA_Channel%Z%StatusInverted            (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChannel%Z%StatusInverted)))
 // 
 #define KoSWA_Channel%Z%Lock                      (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChannel%Z%Lock)))
 // 
@@ -332,125 +431,125 @@
 // 
 #define KoSWA_Channel%Z%Scene                     (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChannel%Z%Scene)))
 
-#define LOG_BuzzerInstalled                     215      // 1 Bit, Bit 7
+#define LOG_BuzzerInstalled                     639      // 1 Bit, Bit 7
 #define     LOG_BuzzerInstalledMask 0x80
 #define     LOG_BuzzerInstalledShift 7
-#define LOG_LedInstalled                        215      // 1 Bit, Bit 6
+#define LOG_LedInstalled                        639      // 1 Bit, Bit 6
 #define     LOG_LedInstalledMask 0x40
 #define     LOG_LedInstalledShift 6
-#define LOG_VacationKo                          215      // 1 Bit, Bit 5
+#define LOG_VacationKo                          639      // 1 Bit, Bit 5
 #define     LOG_VacationKoMask 0x20
 #define     LOG_VacationKoShift 5
-#define LOG_HolidayKo                           215      // 1 Bit, Bit 4
+#define LOG_HolidayKo                           639      // 1 Bit, Bit 4
 #define     LOG_HolidayKoMask 0x10
 #define     LOG_HolidayKoShift 4
-#define LOG_VacationRead                        215      // 1 Bit, Bit 3
+#define LOG_VacationRead                        639      // 1 Bit, Bit 3
 #define     LOG_VacationReadMask 0x08
 #define     LOG_VacationReadShift 3
-#define LOG_HolidaySend                         215      // 1 Bit, Bit 2
+#define LOG_HolidaySend                         639      // 1 Bit, Bit 2
 #define     LOG_HolidaySendMask 0x04
 #define     LOG_HolidaySendShift 2
-#define LOG_Neujahr                             216      // 1 Bit, Bit 7
+#define LOG_Neujahr                             640      // 1 Bit, Bit 7
 #define     LOG_NeujahrMask 0x80
 #define     LOG_NeujahrShift 7
-#define LOG_DreiKoenige                         216      // 1 Bit, Bit 6
+#define LOG_DreiKoenige                         640      // 1 Bit, Bit 6
 #define     LOG_DreiKoenigeMask 0x40
 #define     LOG_DreiKoenigeShift 6
-#define LOG_Weiberfastnacht                     216      // 1 Bit, Bit 5
+#define LOG_Weiberfastnacht                     640      // 1 Bit, Bit 5
 #define     LOG_WeiberfastnachtMask 0x20
 #define     LOG_WeiberfastnachtShift 5
-#define LOG_Rosenmontag                         216      // 1 Bit, Bit 4
+#define LOG_Rosenmontag                         640      // 1 Bit, Bit 4
 #define     LOG_RosenmontagMask 0x10
 #define     LOG_RosenmontagShift 4
-#define LOG_Fastnachtsdienstag                  216      // 1 Bit, Bit 3
+#define LOG_Fastnachtsdienstag                  640      // 1 Bit, Bit 3
 #define     LOG_FastnachtsdienstagMask 0x08
 #define     LOG_FastnachtsdienstagShift 3
-#define LOG_Aschermittwoch                      216      // 1 Bit, Bit 2
+#define LOG_Aschermittwoch                      640      // 1 Bit, Bit 2
 #define     LOG_AschermittwochMask 0x04
 #define     LOG_AschermittwochShift 2
-#define LOG_Frauentag                           216      // 1 Bit, Bit 1
+#define LOG_Frauentag                           640      // 1 Bit, Bit 1
 #define     LOG_FrauentagMask 0x02
 #define     LOG_FrauentagShift 1
-#define LOG_Gruendonnerstag                     216      // 1 Bit, Bit 0
+#define LOG_Gruendonnerstag                     640      // 1 Bit, Bit 0
 #define     LOG_GruendonnerstagMask 0x01
 #define     LOG_GruendonnerstagShift 0
-#define LOG_Karfreitag                          217      // 1 Bit, Bit 7
+#define LOG_Karfreitag                          641      // 1 Bit, Bit 7
 #define     LOG_KarfreitagMask 0x80
 #define     LOG_KarfreitagShift 7
-#define LOG_Ostersonntag                        217      // 1 Bit, Bit 6
+#define LOG_Ostersonntag                        641      // 1 Bit, Bit 6
 #define     LOG_OstersonntagMask 0x40
 #define     LOG_OstersonntagShift 6
-#define LOG_Ostermontag                         217      // 1 Bit, Bit 5
+#define LOG_Ostermontag                         641      // 1 Bit, Bit 5
 #define     LOG_OstermontagMask 0x20
 #define     LOG_OstermontagShift 5
-#define LOG_TagDerArbeit                        217      // 1 Bit, Bit 4
+#define LOG_TagDerArbeit                        641      // 1 Bit, Bit 4
 #define     LOG_TagDerArbeitMask 0x10
 #define     LOG_TagDerArbeitShift 4
-#define LOG_Himmelfahrt                         217      // 1 Bit, Bit 3
+#define LOG_Himmelfahrt                         641      // 1 Bit, Bit 3
 #define     LOG_HimmelfahrtMask 0x08
 #define     LOG_HimmelfahrtShift 3
-#define LOG_Pfingstsonntag                      217      // 1 Bit, Bit 2
+#define LOG_Pfingstsonntag                      641      // 1 Bit, Bit 2
 #define     LOG_PfingstsonntagMask 0x04
 #define     LOG_PfingstsonntagShift 2
-#define LOG_Pfingstmontag                       217      // 1 Bit, Bit 1
+#define LOG_Pfingstmontag                       641      // 1 Bit, Bit 1
 #define     LOG_PfingstmontagMask 0x02
 #define     LOG_PfingstmontagShift 1
-#define LOG_Fronleichnam                        217      // 1 Bit, Bit 0
+#define LOG_Fronleichnam                        641      // 1 Bit, Bit 0
 #define     LOG_FronleichnamMask 0x01
 #define     LOG_FronleichnamShift 0
-#define LOG_Friedensfest                        218      // 1 Bit, Bit 7
+#define LOG_Friedensfest                        642      // 1 Bit, Bit 7
 #define     LOG_FriedensfestMask 0x80
 #define     LOG_FriedensfestShift 7
-#define LOG_MariaHimmelfahrt                    218      // 1 Bit, Bit 6
+#define LOG_MariaHimmelfahrt                    642      // 1 Bit, Bit 6
 #define     LOG_MariaHimmelfahrtMask 0x40
 #define     LOG_MariaHimmelfahrtShift 6
-#define LOG_DeutscheEinheit                     218      // 1 Bit, Bit 5
+#define LOG_DeutscheEinheit                     642      // 1 Bit, Bit 5
 #define     LOG_DeutscheEinheitMask 0x20
 #define     LOG_DeutscheEinheitShift 5
-#define LOG_Nationalfeiertag                    219      // 1 Bit, Bit 1
+#define LOG_Nationalfeiertag                    643      // 1 Bit, Bit 1
 #define     LOG_NationalfeiertagMask 0x02
 #define     LOG_NationalfeiertagShift 1
-#define LOG_Reformationstag                     218      // 1 Bit, Bit 4
+#define LOG_Reformationstag                     642      // 1 Bit, Bit 4
 #define     LOG_ReformationstagMask 0x10
 #define     LOG_ReformationstagShift 4
-#define LOG_Allerheiligen                       218      // 1 Bit, Bit 3
+#define LOG_Allerheiligen                       642      // 1 Bit, Bit 3
 #define     LOG_AllerheiligenMask 0x08
 #define     LOG_AllerheiligenShift 3
-#define LOG_BussBettag                          218      // 1 Bit, Bit 2
+#define LOG_BussBettag                          642      // 1 Bit, Bit 2
 #define     LOG_BussBettagMask 0x04
 #define     LOG_BussBettagShift 2
-#define LOG_MariaEmpfaengnis                    219      // 1 Bit, Bit 0
+#define LOG_MariaEmpfaengnis                    643      // 1 Bit, Bit 0
 #define     LOG_MariaEmpfaengnisMask 0x01
 #define     LOG_MariaEmpfaengnisShift 0
-#define LOG_Advent1                             218      // 1 Bit, Bit 1
+#define LOG_Advent1                             642      // 1 Bit, Bit 1
 #define     LOG_Advent1Mask 0x02
 #define     LOG_Advent1Shift 1
-#define LOG_Advent2                             218      // 1 Bit, Bit 0
+#define LOG_Advent2                             642      // 1 Bit, Bit 0
 #define     LOG_Advent2Mask 0x01
 #define     LOG_Advent2Shift 0
-#define LOG_Advent3                             219      // 1 Bit, Bit 7
+#define LOG_Advent3                             643      // 1 Bit, Bit 7
 #define     LOG_Advent3Mask 0x80
 #define     LOG_Advent3Shift 7
-#define LOG_Advent4                             219      // 1 Bit, Bit 6
+#define LOG_Advent4                             643      // 1 Bit, Bit 6
 #define     LOG_Advent4Mask 0x40
 #define     LOG_Advent4Shift 6
-#define LOG_Heiligabend                         219      // 1 Bit, Bit 5
+#define LOG_Heiligabend                         643      // 1 Bit, Bit 5
 #define     LOG_HeiligabendMask 0x20
 #define     LOG_HeiligabendShift 5
-#define LOG_Weihnachtstag1                      219      // 1 Bit, Bit 4
+#define LOG_Weihnachtstag1                      643      // 1 Bit, Bit 4
 #define     LOG_Weihnachtstag1Mask 0x10
 #define     LOG_Weihnachtstag1Shift 4
-#define LOG_Weihnachtstag2                      219      // 1 Bit, Bit 3
+#define LOG_Weihnachtstag2                      643      // 1 Bit, Bit 3
 #define     LOG_Weihnachtstag2Mask 0x08
 #define     LOG_Weihnachtstag2Shift 3
-#define LOG_Silvester                           219      // 1 Bit, Bit 2
+#define LOG_Silvester                           643      // 1 Bit, Bit 2
 #define     LOG_SilvesterMask 0x04
 #define     LOG_SilvesterShift 2
-#define LOG_BuzzerSilent                        220      // uint16_t
-#define LOG_BuzzerNormal                        222      // uint16_t
-#define LOG_BuzzerLoud                          224      // uint16_t
-#define LOG_VisibleChannels                     226      // uint8_t
-#define LOG_LedMapping                          227      // 3 Bits, Bit 7-5
+#define LOG_BuzzerSilent                        644      // uint16_t
+#define LOG_BuzzerNormal                        646      // uint16_t
+#define LOG_BuzzerLoud                          648      // uint16_t
+#define LOG_VisibleChannels                     650      // uint8_t
+#define LOG_LedMapping                          651      // 3 Bits, Bit 7-5
 #define     LOG_LedMappingMask 0xE0
 #define     LOG_LedMappingShift 5
 
@@ -561,7 +660,7 @@
 #define LOG_ChannelCount 1
 
 // Parameter per channel
-#define LOG_ParamBlockOffset 228
+#define LOG_ParamBlockOffset 652
 #define LOG_ParamBlockSize 84
 #define LOG_ParamCalcIndex(index) (index + LOG_ParamBlockOffset + _channelIndex * LOG_ParamBlockSize)
 
@@ -2235,7 +2334,7 @@
 #define BASE_KommentarModuleModuleParamSize 0
 #define BASE_KommentarModuleSubmodulesParamSize 0
 #define BASE_KommentarModuleParamSize 0
-#define BASE_KommentarModuleParamOffset 312
+#define BASE_KommentarModuleParamOffset 736
 #define BASE_KommentarModuleCalcIndex(index, m1) (index + BASE_KommentarModuleParamOffset + _channelIndex * BASE_KommentarModuleCount * BASE_KommentarModuleParamSize + m1 * BASE_KommentarModuleParamSize)
 
 
