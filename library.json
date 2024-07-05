@@ -1,7 +1,7 @@
 {
-    "name": "OAM-PresenceModule",
-    "version": "5.0.0",
-    "description": "Virtual Presence application for the knx stack, can be parametrized with ETS",
+    "name": "OAM-SwitchActuator",
+    "version": "0.1",
+    "description": "Switch actuator application for the knx stack, can be parametrized with ETS",
     "homepage": "https://openknx.de",
     "authors": {
         "name": "OpenKNX",
@@ -11,6 +11,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/OpenKNX/OAM-PresenceModule"
+        "url": "https://github.com/OpenKNX/OAM-SwitchActuator"
     }
 }
