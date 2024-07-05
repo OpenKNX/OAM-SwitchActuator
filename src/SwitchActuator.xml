@@ -21,12 +21,12 @@
              share="../lib/OGM-Common/src/Common.share.xml"
   />
 
-  <!-- <op:define prefix="UCT"
+  <op:define prefix="UCT"
     share="../../OFM-ConfigTransfer/src/ConfigTransfer.share.xml"
     noConfigTransfer="true"
     ModuleType="99">
     <op:verify File="../../OFM-ConfigTransfer/library.json" ModuleVersion="0.1" />
-  </op:define> -->
+  </op:define>
 
   <op:define prefix="SWA"
     share="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.share.xml"
@@ -35,7 +35,7 @@
     KoSingleOffset="20"
     KoOffset="50"
     ModuleType="20">
-    <op:verify File="../lib/OFM-SwitchActuator/library.json" ModuleVersion="0.0" />
+    <op:verify File="../lib/OFM-SwitchActuator/library.json" ModuleVersion="0.1" />
   </op:define>
 
   <op:define prefix="LOG"

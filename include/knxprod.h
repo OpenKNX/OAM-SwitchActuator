@@ -14,7 +14,8 @@
 #define MAIN_ParameterSize 736
 #define MAIN_MaxKoNumber 452
 #define MAIN_OrderNumber "OpenKnxSwitchActuator"
-#define SWA_ModuleVersion 0
+#define UCT_ModuleVersion 1
+#define SWA_ModuleVersion 1
 #define LOG_ModuleVersion 50
 // Parameter with single occurrence
 
@@ -142,12 +143,14 @@
 // Speichern
 #define KoBASE_ManualSave                          (knx.getGroupObject(BASE_KoManualSave))
 
+
+
 #define SWA_VisibleChannels                     46      // uint8_t
 
 // Verfügbare Kanäle
 #define ParamSWA_VisibleChannels                     (knx.paramByte(SWA_VisibleChannels))
 
-#define SWA_KoCentralFunction 21
+#define SWA_KoCentralFunction 20
 
 // Zentralfunktion
 #define KoSWA_CentralFunction                     (knx.getGroupObject(SWA_KoCentralFunction))

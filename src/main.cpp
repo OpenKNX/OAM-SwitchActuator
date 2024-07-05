@@ -1,5 +1,5 @@
 #include "Logic.h"
-#include "SwitchActuator.h"
+#include "SwitchActuatorModule.h"
 #include "FileTransferModule.h"
 #include "OpenKNX.h"
 #include "hardware.h"
