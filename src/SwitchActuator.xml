@@ -44,7 +44,7 @@
     NumChannels="1"
     KoOffset="450"
     ModuleType="10">
-    <op:verify File="../lib/OFM-LogicModule/library.json" ModuleVersion="3.2" />
+    <op:verify File="../lib/OFM-LogicModule/library.json" ModuleVersion="3.3" />
   </op:define>
   <generate />
 </KNX>
