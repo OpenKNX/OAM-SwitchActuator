@@ -2,19 +2,20 @@
 <?xml-model href="../../Organization/knxprod-support/knx_project_20/knx-editor.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <KNX xmlns="http://knx.org/xml/project/20" xmlns:op="http://github.com/OpenKNX/OpenKNXproducer">
 
-  <op:config name="%SWA_NumChannelsDefault%" value="8" />
+  <op:config name="%SWA_NumChannelsDefault%" value="4" />
   <op:config name="%LOG_NumChannelsDefault%" value="1" />
 
-  <op:ETS OpenKnxId="0xAF"
+  <op:ETS OpenKnxId="0xA1"
     ApplicationNumber="0x02"
-    ApplicationVersion="0.10"
-    ReplacesVersions="0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1 0.0"
+    ApplicationVersion="0.1"
+    ReplacesVersions="0.0"
     ApplicationRevision="0"
-    ProductName="Schaltaktor"
-    ApplicationName="AB-SwitchActuator-Logic"
+    ProductName="SA-REG1-4xSELV"
     BuildSuffix="-dev"
     BuildSuffixText=" (dev)"
-    OrderNumber="OpenKnxSwitchActuator"
+    OrderNumber="SA-REG1-4xSELV"
+    IsRailMounted="true"
+    BusCurrent="20"
     BaggagesRootDir="A6/02"
   />
   <op:define prefix="BASE" ModuleType="10"
@@ -25,7 +26,7 @@
     share="../../OFM-ConfigTransfer/src/ConfigTransfer.share.xml"
     noConfigTransfer="true"
     ModuleType="99">
-    <op:verify File="../../OFM-ConfigTransfer/library.json" ModuleVersion="0.1" />
+    <op:verify File="../../OFM-ConfigTransfer/library.json" ModuleVersion="0.2" />
   </op:define>
 
   <op:define prefix="SWA"
