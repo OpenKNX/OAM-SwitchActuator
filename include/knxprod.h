@@ -8,13 +8,14 @@
             (time & 0xC000) == 0x8000 ? ((time & 0x3FFF) > 1000 ? 3600000 : \
                                          (time & 0x3FFF) * 3600000 ) : 0 )
                                              
-#define MAIN_OpenKnxId 0xAF
+#define MAIN_OpenKnxId 0xA6
 #define MAIN_ApplicationNumber 2
-#define MAIN_ApplicationVersion 12
-#define MAIN_ParameterSize 3736
-#define MAIN_MaxKoNumber 452
+#define MAIN_ApplicationVersion 1
+#define MAIN_ParameterSize 11968
+#define MAIN_MaxKoNumber 397
 #define MAIN_OrderNumber "OpenKnxSwitchActuator"
-#define UCT_ModuleVersion 1
+#define BASE_ModuleVersion 18
+#define UCT_ModuleVersion 2
 #define SWA_ModuleVersion 1
 #define LOG_ModuleVersion 51
 // Parameter with single occurrence
@@ -404,10 +405,10 @@
 #define ParamSWA_ChSceneHNumber                      (knx.paramByte(SWA_ParamCalcIndex(SWA_ChSceneHNumber)))
 
 // deprecated
-#define SWA_KoOffset 50
+#define SWA_KoOffset 350
 
 // Communication objects per channel (multiple occurrence)
-#define SWA_KoBlockOffset 50
+#define SWA_KoBlockOffset 350
 #define SWA_KoBlockSize 6
 
 #define SWA_KoCalcNumber(index) (index + SWA_KoBlockOffset + _channelIndex * SWA_KoBlockSize)
@@ -900,7 +901,7 @@
 // Buzzer sperren
 #define KoLOG_BuzzerLock                          (knx.getGroupObject(LOG_KoBuzzerLock))
 
-#define LOG_ChannelCount 1
+#define LOG_ChannelCount 99
 
 // Parameter per channel
 #define LOG_ParamBlockOffset 3652
@@ -2548,10 +2549,10 @@
 #define ParamLOG_fOOffKOSendNumber                   (knx.paramWord(LOG_ParamCalcIndex(LOG_fOOffKOSendNumber)) & LOG_fOOffKOSendNumberMask)
 
 // deprecated
-#define LOG_KoOffset 450
+#define LOG_KoOffset 50
 
 // Communication objects per channel (multiple occurrence)
-#define LOG_KoBlockOffset 450
+#define LOG_KoBlockOffset 50
 #define LOG_KoBlockSize 3
 
 #define LOG_KoCalcNumber(index) (index + LOG_KoBlockOffset + _channelIndex * LOG_KoBlockSize)
@@ -2577,7 +2578,7 @@
 #define BASE_KommentarModuleModuleParamSize 0
 #define BASE_KommentarModuleSubmodulesParamSize 0
 #define BASE_KommentarModuleParamSize 0
-#define BASE_KommentarModuleParamOffset 3736
+#define BASE_KommentarModuleParamOffset 11968
 #define BASE_KommentarModuleCalcIndex(index, m1) (index + BASE_KommentarModuleParamOffset + _channelIndex * BASE_KommentarModuleCount * BASE_KommentarModuleParamSize + m1 * BASE_KommentarModuleParamSize)
 
 
