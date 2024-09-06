@@ -1,4 +1,6 @@
-#ifdef BOARD_AB_SMARTHOUSE_6TE_8CH
+#ifdef BOARD_AB_SMARTHOUSE_SA_REG6_8CH
+    #define HARDWARE_NAME "AB-SmartHouse-SA-REG6-8CH"
+
     #define INFO_LED_PIN 11
     #define INFO_LED_PIN_ACTIVE_ON HIGH
     #define PROG_LED_PIN 10
