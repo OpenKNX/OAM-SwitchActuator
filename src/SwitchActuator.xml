@@ -5,7 +5,7 @@
   <op:config name="%SWA_NumChannelsDefault%" value="4" />
   <op:config name="%LOG_NumChannelsDefault%" value="1" />
 
-  <op:ETS OpenKnxId="0xA1"
+  <op:ETS OpenKnxId="0xAF"
     ApplicationNumber="0x02"
     ApplicationVersion="0.1"
     ReplacesVersions="0.0"
@@ -32,7 +32,7 @@
   <op:define prefix="SWA"
     share="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.share.xml"
     template="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.templ.xml"
-    NumChannels="8"
+    NumChannels="4"
     KoSingleOffset="20"
     KoOffset="50"
     ModuleType="20">
