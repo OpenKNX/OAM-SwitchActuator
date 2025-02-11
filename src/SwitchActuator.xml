@@ -4,10 +4,13 @@
 
   <op:config href="SwitchActuator.conf.xml" />
 
+  <op:nowarn id="1" regex="SWA_ApplicationVersion" />
+  <op:nowarn id="1" regex="SWA_ReplacesVersions" />
+
   <op:ETS OpenKnxId="0xAF"
     ApplicationNumber="0x02"
-    ApplicationVersion="0.13"
-    ReplacesVersions="0.12 0.11 0.10 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1 0.0"
+    ApplicationVersion="1.12"
+    ReplacesVersions="1.11 1.10 1.9 0.14 0.13 0.12 0.11 0.10 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1 0.0"
     ApplicationRevision="0"
     ProductName="Schaltaktor"
     ApplicationName="AB-SwitchActuator-Logic"
@@ -41,7 +44,7 @@
   <op:define prefix="LOG"
     share="../lib/OFM-LogicModule/src/Logikmodul.share.xml"
     template="../lib/OFM-LogicModule/src/Logikmodul.templ.xml"
-    NumChannels="1"
+    NumChannels="3"
     KoOffset="50"
     ModuleType="10">
     <op:verify File="../lib/OFM-LogicModule/library.json" ModuleVersion="%LOG_VerifyVersion%" />

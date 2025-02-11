@@ -10,8 +10,8 @@
                                              
 #define MAIN_OpenKnxId 0xAF
 #define MAIN_ApplicationNumber 2
-#define MAIN_ApplicationVersion 1
-#define MAIN_ParameterSize 3738
+#define MAIN_ApplicationVersion 28
+#define MAIN_ParameterSize 3908
 #define MAIN_MaxKoNumber 397
 #define MAIN_OrderNumber "OpenKnxSwitchActuator"
 #define BASE_ModuleVersion 18
@@ -297,7 +297,7 @@
 
 // Kanalaktivität
 #define ParamSWA_ChActive                            ((knx.paramByte(SWA_ParamCalcIndex(SWA_ChActive)) & SWA_ChActiveMask) >> SWA_ChActiveShift)
-// 
+// Synchron schalten
 #define ParamSWA_ChSyncSwitch                        ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_ChSyncSwitch)) & SWA_ChSyncSwitchMask))
 // Betriebsmodus
 #define ParamSWA_ChOperationMode                     ((bool)(knx.paramByte(SWA_ParamCalcIndex(SWA_ChOperationMode)) & SWA_ChOperationModeMask))
@@ -911,7 +911,7 @@
 // Buzzer sperren
 #define KoLOG_BuzzerLock                          (knx.getGroupObject(LOG_KoBuzzerLock))
 
-#define LOG_ChannelCount 1
+#define LOG_ChannelCount 3
 
 // Parameter per channel
 #define LOG_ParamBlockOffset 3653
@@ -2659,7 +2659,7 @@
 #define BASE_KommentarModuleModuleParamSize 0
 #define BASE_KommentarModuleSubmodulesParamSize 0
 #define BASE_KommentarModuleParamSize 0
-#define BASE_KommentarModuleParamOffset 3738
+#define BASE_KommentarModuleParamOffset 3908
 #define BASE_KommentarModuleCalcIndex(index, m1) (index + BASE_KommentarModuleParamOffset + _channelIndex * BASE_KommentarModuleCount * BASE_KommentarModuleParamSize + m1 * BASE_KommentarModuleParamSize)
 
 

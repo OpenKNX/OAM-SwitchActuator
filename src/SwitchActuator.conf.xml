@@ -9,6 +9,6 @@
   <op:config name="%LOG_VerifyVersion%" value="3.5" />
   <op:config name="%BASE_VerifyVersion%" value="1.2" />
 
-  <op:config name="%ApplicationVersion%" value="0.1" />
-  <op:config name="%ReplacesVersions%" value="0.0" />
+  <op:config name="%SWA_ApplicationVersion%" value="0.1" />
+  <op:config name="%SWA_ReplacesVersions%" value="0.0" />
 </KNX>
