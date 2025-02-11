@@ -13,6 +13,9 @@
 			"path": "../OFM-FileTransferModule"
 		},
 		{
+			"path": "../OFM-GPIOModule"
+		},
+		{
 			"path": "../OGM-Common"
 		},
 		{
