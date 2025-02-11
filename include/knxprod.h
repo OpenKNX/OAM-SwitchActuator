@@ -8,10 +8,10 @@
             (time & 0xC000) == 0x8000 ? ((time & 0x3FFF) > 1000 ? 3600000 : \
                                          (time & 0x3FFF) * 3600000 ) : 0 )
                                              
-#define MAIN_OpenKnxId 0xAF
+#define MAIN_OpenKnxId 0xA6
 #define MAIN_ApplicationNumber 2
-#define MAIN_ApplicationVersion 28
-#define MAIN_ParameterSize 3908
+#define MAIN_ApplicationVersion 2
+#define MAIN_ParameterSize 12068
 #define MAIN_MaxKoNumber 397
 #define MAIN_OrderNumber "OpenKnxSwitchActuator"
 #define BASE_ModuleVersion 18
@@ -911,7 +911,7 @@
 // Buzzer sperren
 #define KoLOG_BuzzerLock                          (knx.getGroupObject(LOG_KoBuzzerLock))
 
-#define LOG_ChannelCount 3
+#define LOG_ChannelCount 99
 
 // Parameter per channel
 #define LOG_ParamBlockOffset 3653
@@ -2659,7 +2659,7 @@
 #define BASE_KommentarModuleModuleParamSize 0
 #define BASE_KommentarModuleSubmodulesParamSize 0
 #define BASE_KommentarModuleParamSize 0
-#define BASE_KommentarModuleParamOffset 3908
+#define BASE_KommentarModuleParamOffset 12068
 #define BASE_KommentarModuleCalcIndex(index, m1) (index + BASE_KommentarModuleParamOffset + _channelIndex * BASE_KommentarModuleCount * BASE_KommentarModuleParamSize + m1 * BASE_KommentarModuleParamSize)
 
 
