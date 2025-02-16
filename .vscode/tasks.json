@@ -52,6 +52,31 @@
             "group": "build"
         },
         {
+            "label": "Pull",
+            "type": "shell",
+            "command": "git pull --ff-only",
+            "args": [
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/"
+            },
+            "problemMatcher": [],
+            "group": "test"
+        },
+        {
+            "label": "Pull & Restore",
+            "type": "shell",
+            "command": "${workspaceFolder}/restore/Restore-Dependencies-Branch.ps1",
+            "args": [
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/restore/"
+            },
+            "problemMatcher": [],
+            "group": "test",
+            "dependsOn": ["Pull"]
+        },
+        {
             "label": "OpenKNXproducer",
             "type": "shell",
             "command": "~/bin/OpenKNXproducer.exe",

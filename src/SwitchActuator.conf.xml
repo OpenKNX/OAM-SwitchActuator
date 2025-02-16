@@ -7,7 +7,7 @@
   <op:config name="%UCT_VerifyVersion%" value="0.2" />
   <op:config name="%SWA_VerifyVersion%" value="0.1" />
   <op:config name="%LOG_VerifyVersion%" value="3.5" />
-  <op:config name="%BASE_VerifyVersion%" value="1.2" />
+  <op:config name="%BASE_VerifyVersion%" value="1.3" />
 
   <op:config name="%SWA_ApplicationVersion%" value="0.2" />
   <op:config name="%SWA_ReplacesVersions%" value="0.1 0.0" />
