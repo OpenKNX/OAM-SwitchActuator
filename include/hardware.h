@@ -37,9 +37,8 @@
     #define OPENKNX_GPIO_CLOCK 400000
 #endif
 
-#ifdef BOARD_REG1_SA_4xSELV
-    #define OKNXHW_REG1_SA_4XSELV
-    #include "OpenKNXHardware.h"
+#ifdef DEVICE_REG1_SA_4XSELV
+    #include "HardwareConfig/OpenKNX/REG1.h"
 
     #define OPENKNX_SWA_CHANNEL_COUNT 4
     #define OPENKNX_SWA_SET_PINS 0x0106, 0x0104, 0x0100, 0x0102
