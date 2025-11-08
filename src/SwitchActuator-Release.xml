@@ -25,12 +25,16 @@
     <op:verify File="../../OFM-ConfigTransfer/library.json" ModuleVersion="%UCT_VerifyVersion%" />
   </op:define>
 
+  <op:define prefix="SWA_OAM" ModuleType="99"
+    noConfigTransfer="true"
+    share="SwitchActuator.share.xml" />
+
   <op:define prefix="SWA"
     share="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.share.xml"
     template="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.templ.xml"
     NumChannels="8"
     KoSingleOffset="20"
-    KoOffset="350"
+    KoOffset="450"
     ModuleType="20">
     <op:verify File="../lib/OFM-SwitchActuator/library.json" ModuleVersion="%SWA_VerifyVersion%" />
   </op:define>
@@ -42,7 +46,16 @@
     KoOffset="50"
     ModuleType="10">
     <op:verify File="../lib/OFM-LogicModule/library.json" ModuleVersion="%LOG_VerifyVersion%" />
-  </op:define>
+  </op:define> <!-- 3 KOs/Ch = 297 -->
+
+  <op:define prefix="FCB"
+    share="../lib/OFM-FunctionBlocks/src/FunctionBlocks.share.xml"
+    template="../lib/OFM-FunctionBlocks/src/FunctionBlocks.templ.xml"
+    NumChannels="10"
+    KoOffset="350"
+    ModuleType="30">
+    <op:verify File="../lib/OFM-FunctionBlocks/library.json" ModuleVersion="%FCB_VerifyVersion%" /> 
+  </op:define> <!-- 10 KOs/Ch = 100 -->
 
   <generate />
 </KNX>

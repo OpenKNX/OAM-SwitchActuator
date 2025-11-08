@@ -4,10 +4,13 @@
   <op:config name="%SWA_NumChannelsDefault%" value="8" />
   <op:config name="%LOG_NumChannelsDefault%" value="3" />
 
+  <op:config name="%SWA_HardwareSelect%" value="1" />
+
   <op:config name="%UCT_VerifyVersion%" value="0.4" />
   <op:config name="%SWA_VerifyVersion%" value="0.1" />
   <op:config name="%LOG_VerifyVersion%" value="3.7" />
   <op:config name="%BASE_VerifyVersion%" value="1.5" />
+  <op:config name="%FCB_VerifyVersion%" value="0.6" />
 
   <op:config name="%SWA_ApplicationVersion%" value="0.2" />
   <op:config name="%SWA_ReplacesVersions%" value="0.1 0.0" />

@@ -9,8 +9,8 @@
 
   <op:ETS OpenKnxId="0xAF"
     ApplicationNumber="0x02"
-    ApplicationVersion="1.12"
-    ReplacesVersions="1.11 1.10 1.9 0.14 0.13 0.12 0.11 0.10 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1 0.0"
+    ApplicationVersion="2.1"
+    ReplacesVersions="2.0 1.15 1.14 1.13 1.12 1.11 1.10 1.9 0.14 0.13 0.12 0.11 0.10 0.9 0.8 0.7 0.6 0.5 0.4 0.3 0.2 0.1 0.0"
     ApplicationRevision="0"
     ProductName="Schaltaktor"
     ApplicationName="AB-SwitchActuator-Logic"
@@ -31,12 +31,16 @@
     <op:verify File="../../OFM-ConfigTransfer/library.json" ModuleVersion="%UCT_VerifyVersion%" />
   </op:define>
 
+  <op:define prefix="SWA_OAM" ModuleType="99"
+    noConfigTransfer="true"
+    share="SwitchActuator.share.xml" />
+
   <op:define prefix="SWA"
     share="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.share.xml"
     template="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.templ.xml"
     NumChannels="8"
     KoSingleOffset="20"
-    KoOffset="350"
+    KoOffset="450"
     ModuleType="20">
     <op:verify File="../lib/OFM-SwitchActuator/library.json" ModuleVersion="%SWA_VerifyVersion%" />
   </op:define>
@@ -48,7 +52,16 @@
     KoOffset="50"
     ModuleType="10">
     <op:verify File="../lib/OFM-LogicModule/library.json" ModuleVersion="%LOG_VerifyVersion%" />
-  </op:define>
+  </op:define> <!-- 3 KOs/Ch = 297 -->
+
+  <op:define prefix="FCB"
+    share="../lib/OFM-FunctionBlocks/src/FunctionBlocks.share.xml"
+    template="../lib/OFM-FunctionBlocks/src/FunctionBlocks.templ.xml"
+    NumChannels="1"
+    KoOffset="350"
+    ModuleType="30">
+    <op:verify File="../lib/OFM-FunctionBlocks/library.json" ModuleVersion="%FCB_VerifyVersion%" /> 
+  </op:define> <!-- 10 KOs/Ch = 100 -->
 
   <generate />
 </KNX>
