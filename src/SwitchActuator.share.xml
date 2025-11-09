@@ -11,7 +11,6 @@
                 <TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
                   <Enumeration Text="8-fach ohne Strommessung" Value="0" Id="%ENID%" />
                   <Enumeration Text="6-fach mit Strommessung" Value="1" Id="%ENID%" />
-                  <!-- 3 bit left -->
                 </TypeRestriction>
               </ParameterType>
             </ParameterTypes>

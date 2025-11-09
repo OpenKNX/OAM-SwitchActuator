@@ -1,6 +1,6 @@
 #pragma once
 
-#define MAIN_Version "ac35a53"
+#define MAIN_Version "6ac92bc"
 #define KNX_Version "2.2.2+ee3c00e"
 #define MODULE_FileTransferModule_Version "0.1.4+3a96b4e"
 #define MODULE_FileTransferModule_Version_Major 0
@@ -17,7 +17,7 @@
 #define MODULE_LogicModule_Version_Minor 7
 #define MODULE_LogicModule_Version_Revision 3
 #define MODULE_LogicModule_ETS 55
-#define MODULE_SwitchActuator_Version "0.1.0+6908225"
+#define MODULE_SwitchActuator_Version "0.1.0+1cd9c29"
 #define MODULE_SwitchActuator_Version_Major 0
 #define MODULE_SwitchActuator_Version_Minor 1
 #define MODULE_SwitchActuator_Version_Revision 0
