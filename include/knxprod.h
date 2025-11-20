@@ -17,7 +17,7 @@
 #define MAIN_FirmwareName "Schaltaktor (dev)"
 #define MAIN_OpenKnxId 0xAF
 #define MAIN_ApplicationNumber 2
-#define MAIN_ApplicationVersion 33
+#define MAIN_ApplicationVersion 34
 #define MAIN_ApplicationEncoding iso-8859-15
 #define MAIN_ParameterSize 4048
 #define MAIN_MaxKoNumber 521
