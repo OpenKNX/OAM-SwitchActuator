@@ -9,8 +9,8 @@
 
   <op:ETS OpenKnxId="0xAF"
     ApplicationNumber="0x02"
-    ApplicationVersion="2.2"
-    ReplacesVersions="0.0"
+    ApplicationVersion="2.4"
+    ReplacesVersions="2.3 2.2 0.0"
     ApplicationRevision="0"
     ProductName="Schaltaktor"
     ApplicationName="AB-SwitchActuator-Logic"
