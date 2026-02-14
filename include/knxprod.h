@@ -17,15 +17,15 @@
 #define MAIN_FirmwareName "Schaltaktor (dev)"
 #define MAIN_OpenKnxId 0xAF
 #define MAIN_ApplicationNumber 2
-#define MAIN_ApplicationVersion 36
+#define MAIN_ApplicationVersion 38
 #define MAIN_ApplicationEncoding iso-8859-15
 #define MAIN_ParameterSize 4065
 #define MAIN_MaxKoNumber 521
 #define MAIN_OrderNumber "OpenKnxSwitchActuator"
-#define BASE_ModuleVersion 21
+#define BASE_ModuleVersion 22
 #define UCT_ModuleVersion 4
 #define SWA_ModuleVersion 1
-#define LOG_ModuleVersion 55
+#define LOG_ModuleVersion 56
 #define FCB_ModuleVersion 6
 // Parameter with single occurrence
 
@@ -82,6 +82,12 @@
 #define     BASE_ManualSaveMask 0x07
 #define     BASE_ManualSaveShift 0
 #define BASE_PeriodicSave                        79      // 8 Bits, Bit 7-0
+#define BASE_Info1LedFunc                        80      // 16 Bits, Bit 15-0
+#define BASE_Info2LedFunc                        82      // 16 Bits, Bit 15-0
+#define BASE_Info3LedFunc                        84      // 16 Bits, Bit 15-0
+#define BASE_DefaultLedFunc                      85      // 1 Bit, Bit 7
+#define     BASE_DefaultLedFuncMask 0x80
+#define     BASE_DefaultLedFuncShift 7
 #define BASE_Dummy                               109      // uint8_t
 #define BASE_ModuleEnabled_UCT                   110      // 1 Bit, Bit 6
 #define     BASE_ModuleEnabled_UCTMask 0x40
@@ -140,6 +146,14 @@
 #define ParamBASE_ManualSave                          (knx.paramByte(BASE_ManualSave) & BASE_ManualSaveMask)
 // Zyklisches speichern
 #define ParamBASE_PeriodicSave                        (knx.paramByte(BASE_PeriodicSave))
+// Info1
+#define ParamBASE_Info1LedFunc                        (knx.paramWord(BASE_Info1LedFunc))
+// Info2
+#define ParamBASE_Info2LedFunc                        (knx.paramWord(BASE_Info2LedFunc))
+// Info3
+#define ParamBASE_Info3LedFunc                        (knx.paramWord(BASE_Info3LedFunc))
+// 
+#define ParamBASE_DefaultLedFunc                      ((bool)(knx.paramByte(BASE_DefaultLedFunc) & BASE_DefaultLedFuncMask))
 // 
 #define ParamBASE_Dummy                               (knx.paramByte(BASE_Dummy))
 // UCT
@@ -248,9 +262,9 @@
 
 // Zentralfunktion
 #define KoSWA_CentralFunction                     (knx.getGroupObject(SWA_KoCentralFunction))
-// 
+// Gesamtleistung
 #define KoSWA_TotalPower                          (knx.getGroupObject(SWA_KoTotalPower))
-// 
+// Gesamtstrom
 #define KoSWA_TotalCurrent                        (knx.getGroupObject(SWA_KoTotalCurrent))
 
 #define SWA_ChannelCount 8
@@ -596,23 +610,23 @@
 #define SWA_KoChCurrent 7
 #define SWA_KoChVoltage 8
 
-// 
+// Schalten
 #define KoSWA_ChSwitch                            (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChSwitch)))
-// 
+// Status
 #define KoSWA_ChStatus                            (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChStatus)))
-// 
+// Invertierter Status
 #define KoSWA_ChStatusInverted                    (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChStatusInverted)))
-// 
+// Sperren
 #define KoSWA_ChLock                              (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChLock)))
-// 
+// Sperren Status
 #define KoSWA_ChLockStatus                        (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChLockStatus)))
-// 
+// Szene
 #define KoSWA_ChScene                             (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChScene)))
-// 
+// Wirkleistung
 #define KoSWA_ChPower                             (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChPower)))
-// 
+// Strom
 #define KoSWA_ChCurrent                           (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChCurrent)))
-// 
+// Spannung
 #define KoSWA_ChVoltage                           (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChVoltage)))
 
 #define LOG_BuzzerInstalled                     724      // 1 Bit, Bit 7
