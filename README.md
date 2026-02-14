@@ -4,10 +4,8 @@ OpenKNX Firmware und Anwendung für Schaltaktoren.
 
 ## Inbetriebnahme
 
-Die Inbetriebnahme geht am einfachsten mit der [OpenKNX Toolbox](https://github.com/OpenKNX/OpenKNX/wiki/Verwendung-der-OpenKNX-Toolbox).
+Die Inbetriebnahme geht am einfachsten mit der [OpenKNX Toolbox](https://openknx.atlassian.net/wiki/spaces/OpenKNX/pages/66295/OpenKNX-Toolbox).
 
 ## Kompatible Hardware
 
-Aktuell ist folgende Hardware kompatibel:
-
-* [8-fach Schaltaktor im 6 TE Schaltschrankgehäuse](https://www.ab-smarthouse.com/produkt/openknx-schaltaktor-8-fach/)
+Eine Funktionsbeschreibung sowie kompatible Hardware findet sich [hier](https://openknx.atlassian.net/wiki/spaces/OpenKNX/pages/72351753/Schaltaktor).
