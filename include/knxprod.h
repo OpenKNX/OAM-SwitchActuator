@@ -14,17 +14,17 @@
 #define ETS_ModuleId_SWA 3
 #define ETS_ModuleId_LOG 4
 #define ETS_ModuleId_FCB 5
-#define MAIN_FirmwareName "Schaltaktor (dev)"
-#define MAIN_OpenKnxId 0xAF
+#define MAIN_FirmwareName "Schaltaktor"
+#define MAIN_OpenKnxId 0xA6
 #define MAIN_ApplicationNumber 2
-#define MAIN_ApplicationVersion 39
+#define MAIN_ApplicationVersion 3
 #define MAIN_ApplicationEncoding iso-8859-15
-#define MAIN_ParameterSize 4081
+#define MAIN_ParameterSize 13354
 #define MAIN_MaxKoNumber 521
 #define MAIN_OrderNumber "OpenKnxSwitchActuator"
 #define BASE_ModuleVersion 24
 #define UCT_ModuleVersion 5
-#define SWA_ModuleVersion 1
+#define SWA_ModuleVersion 3
 #define LOG_ModuleVersion 67
 #define FCB_ModuleVersion 10
 // Parameter with single occurrence
@@ -1142,7 +1142,7 @@
 // Welcher Feiertag ist morgen?
 #define KoLOG_Holiday2                            (knx.getGroupObject(LOG_KoHoliday2))
 
-#define LOG_ChannelCount 3
+#define LOG_ChannelCount 99
 
 // Parameter per channel
 #define LOG_ParamBlockOffset 3732
@@ -3050,15 +3050,15 @@
 // Ausgang
 #define KoLOG_KOfO                                (knx.getGroupObject(LOG_KoCalcNumber(LOG_KoKOfO)))
 
-#define FCB_VisibleChannels                     3999      // uint8_t
+#define FCB_VisibleChannels                     12543      // uint8_t
 
 // Verfügbare Kanäle
 #define ParamFCB_VisibleChannels                     (knx.paramByte(FCB_VisibleChannels))
 
-#define FCB_ChannelCount 1
+#define FCB_ChannelCount 10
 
 // Parameter per channel
-#define FCB_ParamBlockOffset 4000
+#define FCB_ParamBlockOffset 12544
 #define FCB_ParamBlockSize 81
 #define FCB_ParamCalcIndex(index) (index + FCB_ParamBlockOffset + _channelIndex * FCB_ParamBlockSize)
 
@@ -4130,7 +4130,7 @@
 #define BASE_KommentarModuleModuleParamSize 0
 #define BASE_KommentarModuleSubmodulesParamSize 0
 #define BASE_KommentarModuleParamSize 0
-#define BASE_KommentarModuleParamOffset 4081
+#define BASE_KommentarModuleParamOffset 13354
 #define BASE_KommentarModuleCalcIndex(index, m1) (index + BASE_KommentarModuleParamOffset + _channelIndex * BASE_KommentarModuleCount * BASE_KommentarModuleParamSize + m1 * BASE_KommentarModuleParamSize)
 
 
