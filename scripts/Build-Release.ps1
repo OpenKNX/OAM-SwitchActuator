@@ -32,6 +32,14 @@ if (!$?) { exit 1 }
 lib/OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_AB_SMARTHOUSE_SA_REG6_8CH firmware-AB-SmartHouse-SwitchActuator-REG6-8CH uf2
 if (!$?) { exit 1 }
 
+# build firmware
+lib/OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_AB_SMARTHOUSE_SA_REG6_6CH_CS firmware-AB-SmartHouse-SwitchActuator-REG6-6CH-CS uf2
+if (!$?) { exit 1 }
+
+# build firmware
+#lib/OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_REG1_SA_4xSELV firmware-OpenKNX-REG1_SA_4xSELV uf2
+#if (!$?) { exit 1 }
+
 # execute generic post-build steps
 ../OGM-Common/scripts/setup/reusable/Build-Release-Postprocess.ps1 $args[0]
 if (!$?) { exit 1 }
